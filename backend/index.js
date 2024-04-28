@@ -6,16 +6,18 @@ const app=express();
 
 app.get('/',(request,response)=>{
     console.log(request);
-    return response.status(200).send('Welcome to Project of mren')
+    return response.status(200).send('Welcome to Project of mern')
 })
 
-app.listen(PORT,()=>{
-    console.log(`Server listening on port ${PORT}`);
-});
+
 
 mongoose.connect(mongodbURL).then(()=>{
     console.log(`App connected to database `);
+    app.listen(PORT,()=>{
+        console.log(`Server listening on port ${PORT}`);
+    })
 })
 .catch((error)=>{
     console.log(error);
-})
+});
+
